@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "fcc8000d8ebe7bf07f20",
+    "revision": "6c8dd4310e3c8c783b93",
     "url": "/MovieSearh/static/css/main.4f895228.chunk.css"
   },
   {
-    "revision": "fcc8000d8ebe7bf07f20",
-    "url": "/MovieSearh/static/js/main.fcc8000d.chunk.js"
+    "revision": "6c8dd4310e3c8c783b93",
+    "url": "/MovieSearh/static/js/main.6c8dd431.chunk.js"
   },
   {
     "revision": "77b7197c04d71a0943b0",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/MovieSearh/static/js/runtime~main.986c2919.js"
   },
   {
-    "revision": "89da4bdebbb5021512089ee2bee8b0b8",
+    "revision": "47b5bf460b3486d6030919bd76d69dcc",
     "url": "/MovieSearh/index.html"
   }
 ];
