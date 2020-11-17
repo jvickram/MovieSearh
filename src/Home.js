@@ -38,6 +38,8 @@ class Home extends Component {
         fetch("https://www.omdbapi.com/?type=" + selectedItem + "&t=" + searchText + "&apikey=d58686a0")
             .then(res => res.json())
             .then(response => this.setState({response:response}))
+            this.setState({markedFavourite:false})
+
     }
 
     componentDidMount(){
