@@ -13,7 +13,7 @@ class Home extends Component {
             favourite: [],
             searchText: '',
             selectedItem: '',
-            toggleStatus: false,
+            markedFavourite: false,
             response: '',
         }
         this.onChange = this.onChange.bind(this);
@@ -27,9 +27,9 @@ class Home extends Component {
 
     addToFav(){
         let newFav = this.state.response
-        let old = Data
         Data.favourite.push(newFav)
         localStorage.setItem('Favourite',JSON.stringify(Data.favourite))
+        this.setState({markedFavourite:true})
     }
 
     fetchResult() {
@@ -67,7 +67,6 @@ class Home extends Component {
                             onChange={(e) => this.onChange(e)}
                         >
                             <option value="dropdown">Dropdown</option>
-                            <option value='all'>All</option>
                             <option value='movie'>Movies</option>
                             <option value='series'>Series</option>
                             <option value='episode'>Episode</option>
@@ -98,9 +97,9 @@ class Home extends Component {
                                 <CardSubtitle tag="h6" className="mb-2 text-muted">Release Date:{this.state.response.Year}</CardSubtitle>
                             </CardBody>
                             <CardBody style={{ display: "flex", justifyContent: "space-between"}}>
-                                <button  className="btn btn-primary"
+                                {!this.state.markedFavourite?<button  className="btn btn-primary"
                                     onClick={this.addToFav}
-                                >Add to favourite</button>
+                                >Add to favourite</button>:''}
                                 <Link to={{
                                     pathname: "/details",
                                     searchDetail: this.state.response

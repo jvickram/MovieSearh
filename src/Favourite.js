@@ -3,6 +3,7 @@ import {
     Container, Row, Col, Card, CardBody,
     CardTitle, CardSubtitle
 } from 'reactstrap';
+import { Link } from 'react-router-dom'
 import Data from './data.json'
 
 const removeFromFav = (title) =>{
@@ -26,40 +27,45 @@ export default function Favourite() {
     }
     return (
         <Container>
-            <Col sm="12" md={{ size: 6, offset: 3 }}><h1>My Favourites</h1></Col>
-        
-        {Data.favourite!==null || Data.favourite!==undefined  || Data.favourite!==''?
-         Data.favourite.map(item=> {
-             return (
+            <Row>
+                <Col sm="12" md={{ size: 6, offset: 3 }}><h1>My Favourites</h1></Col>
+            </Row>
+    
+        <Container style={{padding:"10px"}} >
+            {Data.favourite!==null || Data.favourite!==undefined  || Data.favourite!==''
+            ?
+            <Row>
+            {Data.favourite.map(item=> {
+                return (
 
-        <Container style={{padding:"10px"}} key={item.Title}>
-        <Row>
-            {item.Title===""? "" :
-             <Col sm="12" md={{ size: 8, offset: 1 }}>
-                <Card key={item.Title}>
-                    <CardBody>
-                        <img width="100%" src={item.Poster} alt="Poster" />
-                        <CardTitle tag="h5">Title: {item.Title}</CardTitle>
-                        <CardSubtitle tag="h6" className="mb-2 text-muted">Release Date:{item.Year}</CardSubtitle>
-                    </CardBody>
-                    <CardBody>
-                        <button  className="btn btn-primary" onClick = {()=>removeFromFav(item.Title)}>Remove favourite</button>
-                    </CardBody>
-                </Card>
-            </Col>
-            }
-        </Row>
-    </Container>
-         )
-        })
-       
-    : <Container>
-        <Row>
-            <Col>
-                <h3>No Favourites</h3>
-            </Col>
-        </Row>
-    </Container>}
+                item.Title===""? "" :
+                <Col sm="4" md="3" key={item.Title}>
+                    <Card key={item.Title}>
+                        <CardBody>
+                            <img width="100%" src={item.Poster} style={{height:"200px"}} alt="Poster" />
+                            <CardTitle tag="h5">Title: {item.Title}</CardTitle>
+                            <CardSubtitle tag="h6" className="mb-2 text-muted">Release Date:{item.Year}</CardSubtitle>
+                        </CardBody>
+                        <CardBody style={{display:"flex", justifyContent:"space-around"}}>
+                            <button  className="btn btn-primary" onClick = {()=>removeFromFav(item.Title)}>Unfavourite</button>
+                            <Link to={{
+                                        pathname: "/details",
+                                        searchDetail: item
+                                    }}><button className="btn btn-primary">Details</button></Link>
+                        </CardBody>
+                    </Card>
+                </Col>
+                )
+            })}
+            </Row>
+            
+            : 
+            <Row>
+                <Col>
+                    <h3>No Favourites</h3>
+                </Col>
+            </Row>}
+        </Container>
     </Container>
     )
 }
