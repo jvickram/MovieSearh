@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+  padding: 15px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  vertical-align: auto;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+    font-weight: 600;
+}
+
+a:hover{
+  text-decoration: none;
+  color: green;
+}
+
+.navStyle{
+  background-color: rgb(0, 84, 159);
+  display: flex;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+ul{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
